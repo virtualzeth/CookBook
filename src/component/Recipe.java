@@ -1,7 +1,7 @@
 package component;
 
 public class Recipe {
-    // EXAMPLE class variable
+    // EXAMPLE instance variable
     private String name;
     private String[] ingredients;
     private String instructions;

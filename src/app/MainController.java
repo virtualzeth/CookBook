@@ -1,6 +1,7 @@
 package app;
 
 import component.Recipe;
+import component.RecipeData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -45,6 +46,7 @@ public class MainController implements Initializable {
 
         recipeList.add(new Recipe(name, ingredients, instructions, notes));
         recipeListView.getItems().setAll(recipeList);
+        RecipeData.getInstance().setRecipeItems(recipeList);
     }
 
     public void handleClickRecipeListView() {
@@ -86,5 +88,6 @@ public class MainController implements Initializable {
 
         recipeListView.getItems().setAll(recipeList);
         recipeListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        RecipeData.getInstance().setRecipeItems(recipeList);
     }
 }
