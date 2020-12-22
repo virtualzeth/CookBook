@@ -5,7 +5,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
    <children>
-      <ListView fx:id="recipeListView" prefHeight="400.0" prefWidth="200" />
-      <TextArea layoutX="200.0" prefHeight="400.0" prefWidth="401.0" />
+      <ListView fx:id="recipeListView" onMouseClicked="#handleClickRecipeListView" prefHeight="400.0" prefWidth="200" />
+      <TextArea fx:id="recipeTextArea" layoutX="200.0" prefHeight="400.0" prefWidth="400.0" />
    </children>
 </AnchorPane>

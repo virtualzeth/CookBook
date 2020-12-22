@@ -3,8 +3,7 @@ package app;
 import component.Recipe;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,7 +14,23 @@ public class MainController implements Initializable {
     private List<Recipe> recipeList;
 
     @FXML
-    private ListView recipeListView;
+    private ListView<Recipe> recipeListView;
+    @FXML
+    private TextArea recipeTextArea;
+
+    public void handleClickRecipeListView() {
+        Recipe recipe = recipeListView.getSelectionModel().getSelectedItem();
+        StringBuilder sb = new StringBuilder();
+        sb.append(recipe.getName()).append("\n\n\nIngredients:\n\n");
+        int count = 0;
+        // EXAMPLE While loop
+        while(count < recipe.getIngredients().length) {
+            sb.append(String.format("%s\n", recipe.getIngredients()[count]));
+            count++;
+        }
+        sb.append("\n\nInstructions:\n\n").append(recipe.getInstructions()).append("\n\n\nNotes:\n\n").append(recipe.getNotes());
+        recipeTextArea.setText(sb.toString());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,6 +49,7 @@ public class MainController implements Initializable {
 
         // EXAMPLE ArrayList
         recipeList = new ArrayList<Recipe>();
+
         // EXAMPLE For loop
         for (int i = 0; i < recipes.length; i++) {
             recipeList.add(recipes[i]);
@@ -41,6 +57,5 @@ public class MainController implements Initializable {
 
         recipeListView.getItems().setAll(recipeList);
         recipeListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
     }
 }
