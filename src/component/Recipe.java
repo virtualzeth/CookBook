@@ -19,10 +19,17 @@ public class Recipe {
         this.ingredients = ingredients;
         this.instructions = instructions;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
     // EXAMPLE getter
     public String getName() {
         return name;
     }
+
     // EXAMPLE setter
     public void setName(String name) {
         this.name = name;
